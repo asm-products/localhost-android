@@ -3,6 +3,7 @@ package com.localhost.localhost;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.content.Intent;
 
 import com.facebook.*;
 
@@ -25,5 +26,11 @@ public class LoginActivity extends Activity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
     }
 }
